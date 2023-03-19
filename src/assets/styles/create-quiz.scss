@@ -1,0 +1,28 @@
+.create__quiz {
+    width: 72%;
+    margin: 0 auto;
+    form {
+        div {
+            margin-top: 1.2rem;
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            gap: 0.7rem;
+            input {
+                border-radius: 0.4rem;
+                padding: 1rem;
+                border: none;
+                outline: none;
+                background-color: rgb(243 243 243);
+            }
+            textarea {
+                height: 10rem;
+                border-radius: 0.4rem;
+                padding: 1rem;
+                border: none;
+                outline: none;
+                background-color: rgb(243 243 243);
+            }
+        }
+    }
+}
