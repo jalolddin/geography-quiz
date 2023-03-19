@@ -13,28 +13,51 @@
           <form class="inputs">
             <div>
               <label for="email">Электронная почта</label>
-              <input class="form-control" type="email" required>
+              <input v-model="email" class="form-control" type="email" required>
             </div>
             <div>
               <label for="email">Имя пользователя</label>
-              <input class="form-control" type="text" required>
+              <input v-model="username" class="form-control" type="text" required>
             </div>
             <div>
               <label for="email">Пароль</label>
-              <input class="form-control" type="password" required>
+              <input v-model="password" class="form-control" type="password" required>
             </div>
-            <button type="submit">Войти</button>
+            <button @click.prevent="sendInfo()">Создать аккаунт</button>
           </form>
       </div>
     </div>
   </template>
   
   <script>
+  import axios from 'axios'
   export default {
+    data(){
+      return {
+        verify: null,
+        username: null,
+        email: null,
+        password: null
+      }
+    },
     methods:{
   registerClose(){
        this.$store.state.register = false
-    }
+    },
+    sendInfo(){
+  axios.post("http://localhost:8080/api/authorization/register",
+  {
+  username: this.username,
+  password: this.password,
+  email: this.email
+}).then((res) => {
+  this.verify = res
+  console.log(res.data.test_verify)
+  axios.get(res.data.test_verify).then((res) => {
+  console.log(res)
+})
+})
+}
 }
   }
   </script>

@@ -4,14 +4,14 @@
       <div class="text">
         <div>
           <h1>Географические <br> викторины</h1>
-          <p>Хороший шанс  проверку знаний и прокачать знания в сфере географии</p>
-        <button>Перейти к викторинах</button>
+          <p>хороший шанс проверить знания и прокачать навыки в сфере географии</p>
+        <button>Перейти к викторинам</button>
         </div>
       </div>
     </div>
   <div class="home__content">
     <div class="home__content__search">
-      <input placeholder="Напишите, что вы ищеете..." type="text">
+      <input placeholder="Напишите, что вы ищете..." type="text">
       <button>Найти</button>
     </div>
     <br>
@@ -43,11 +43,15 @@ export default {
   name: 'HomeView',
   data(){
     return{
-      info: null
+      info: null,
+      verify: null
     }
   },
   components: {
     starRating
+  },
+  methods: {
+
   },
   mounted(){
 axios.post("http://localhost:8080/api/quiz/get_public").then((res) => {
